@@ -75,8 +75,9 @@
 .div-valor-total {
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     background-color: green;
-    width: 30%;
+    width: 30%; 
     border-radius: 8px;
+    /* opacity: 0.7; */
 }
 
 .div-valor {
@@ -113,8 +114,15 @@
 }
 
 .div-form {
-    display: flex;
+    display: none;
     justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    background-color: white;
+    border-radius: 8px;
 }
 
 .form-add {
@@ -123,6 +131,7 @@
     padding: 30px;
     box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
     border-radius: 8px;
+    opacity: 1;
 }
 
 .titulo-form {
@@ -138,4 +147,11 @@
     width: 25rem;
     padding: 10px;
     background-color: rgb(114, 114, 219);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+body {
+    background: none;
 }
