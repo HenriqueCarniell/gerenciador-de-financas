@@ -7,6 +7,7 @@ let formButtonAdd = document.getElementsByClassName('form-btn-add')[0];
 let tituloInput = document.getElementById('titulo');
 let valorInput = document.getElementById('valor');
 let categoriaInput = document.getElementById('categoria');
+let res = document.getElementById('res');
 
 let openAndClose = false;
 
@@ -26,10 +27,37 @@ openForm.addEventListener('click', () => {
 })
 
 formButtonAdd.addEventListener('click', (e) => {
+
+    if(div_form.style.display === 'flex') {
+        div_form.style.display = 'none';
+        body.style.backgroundColor = 'white';
+        div_valor_total.style.opacity = '1';
+    }
+
     e.preventDefault();
 
     let tituloValue = tituloInput.value;
     let valorValue = valorInput.value;
     let categoriaValue = categoriaInput.value;
 
+    let userData = {
+        titulo: tituloValue,
+        valor: valorValue,
+        categoria: categoriaValue
+    }
+
+    
+    localStorage.setItem('@userData', JSON.stringify(userData))
 })
+
+let InsertUserData = () => {
+    let userData = localStorage.getItem('@userData')
+
+    res.innerHTML = `
+    <p>${userData.titulo}</p>
+    <p>${userData.valor}</p>
+    <p>${userData.categoria}</p>
+    `
+}
+
+InsertUserData()
