@@ -29,7 +29,7 @@
         <div class="container-financeiro">
             <div class="mini-containers entrada">
                 <div class="div-entrada-icone">
-                    <p>Entrada</p>
+                    <p class="entrada-titulo">Entrada</p>
                     <i class="bi bi-arrow-up-circle"></i>
                 </div>
 
@@ -41,7 +41,7 @@
             <!-- div de Saida -->
             <div class="mini-containers saida">
                 <div class="div-entrada-icone">
-                    <p>Saida</p>
+                    <p class="saida-titulo">Saida</p>
                     <i class="bi bi-arrow-down-circle"></i>
                 </div>
                 
@@ -79,6 +79,29 @@
         <!-- botão onde abre e fecha o formulario para digitar os dados -->
         <div class="div-btn-adicionar">
             <button id="btn-add">Adicionar</button>
+        </div>
+
+        <div class="div-form">
+            <form action="" class="form-add">
+                <div class="titulo-form">
+                    <h1>Adicionar Finança</h1>
+                </div>
+                <label for="">Titulo</label>
+                <input type="text">
+
+                <label for="">Valor</label>
+                <input type="number">
+
+                <label for="">Categoria</label>
+                <select name="" id="">
+                    <option value="Escola"></option>
+                    <option value="Celular"></option>
+                </select>
+
+                <div class="div-btn-form-add">
+                    <button class="form-btn-add">Adicionar</button>
+                </div>
+            </form>
         </div>
     </div>
 

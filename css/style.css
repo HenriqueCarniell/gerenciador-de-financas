@@ -4,18 +4,33 @@
     font-style: normal;
     font-variation-settings:
         "slnt" 0;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .container-financeiro {
     display: flex;
     width: 100%;
     justify-content: space-between;
+}
+
+.entrada {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    color: green;
 
 }
 
-.entrada, .saida{
+.saida {
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    color: rgb(202, 16, 16);
+}
 
+.entrada-titulo {
+    color: green;
+}
+
+.saida-titulo {
+    color: rgb(202, 16, 16);
 }
 
 .container-total-icon {
@@ -43,11 +58,13 @@
     align-items: baseline;
 }
 
+
+
 .titulo-inicial {
     display: flex;
     justify-content: center;
     margin-bottom: 4rem;
-    
+
 }
 
 .container-dados-gerenciadores {
@@ -71,7 +88,7 @@
     color: black;
 }
 
-.div-valor-total i{
+.div-valor-total i {
     color: white;
 }
 
@@ -90,4 +107,35 @@
 
 #btn-add {
     cursor: pointer;
+    background-color: rgb(114, 114, 219);
+    color: white;
+    border-color: transparent;
+}
+
+.div-form {
+    display: flex;
+    justify-content: center;
+}
+
+.form-add {
+    display: grid;
+    width: 25rem;
+    padding: 30px;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    border-radius: 8px;
+}
+
+.titulo-form {
+    text-align: center;
+}
+
+.div-btn-form-add {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.form-btn-add {
+    width: 25rem;
+    padding: 10px;
+    background-color: rgb(114, 114, 219);
 }
