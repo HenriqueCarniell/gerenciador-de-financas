@@ -10,9 +10,9 @@ let buttonFormEntrada = document.getElementById('button-form-entrada');
 let buttonFormSaida = document.getElementById('button-form-saida');
 let radioEntrada = document.getElementById('button-form-entrada');
 let radioSaida = document.getElementById('button-form-saida');
-let valorEntrada = document.getElementById('valor-de-entrada')
-let valorSaida = document.getElementById('valor-de-saida')
-let valorTotal = document.getElementById('valor-total')
+let valorEntrada = document.getElementById('valor-de-entrada');
+let valorSaida = document.getElementById('valor-de-saida');
+let valorTotal = document.getElementById('valor-total');
 let res = document.getElementById('res');
 
 let openAndClose = false;
@@ -85,12 +85,23 @@ formButtonAdd.addEventListener('click', (e) => {
 });
 
 let alterarData = (id) => {
-    // Logica para abrir o formulario
+    let divFormAlter = document.getElementsByClassName('container-form-alter')[0]; // Acessando o primeiro elemento da coleção
 
-    //pegar todos os dados
+    // Lógica para abrir ou fechar o formulário
+    if (divFormAlter.style.display === 'grid') {
+        divFormAlter.style.display = 'none';
+        body.style.backgroundColor = 'white';
+        div_valor_total.style.opacity = '1';
+    } else {
+        divFormAlter.style.display = 'grid';
+        body.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
+        div_valor_total.style.opacity = '0.6';
+    }
 
-    //Substituir os novos dados no localstorage
+    // Pegar todos os dados
+    // Substituir os novos dados no localStorage
 }
+
 
 let excludeData = (id) => {
     userDataList = userDataList.filter(element => {
