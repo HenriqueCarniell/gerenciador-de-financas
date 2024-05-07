@@ -11,7 +11,7 @@ let buttonFormSaida = document.getElementById('button-form-saida');
 let radioEntrada = document.getElementById('button-form-entrada');
 let radioSaida = document.getElementById('button-form-saida');
 let valorEntrada = document.getElementById('valor-de-entrada')
-
+let valorSaida = document.getElementById('valor-de-saida')
 let res = document.getElementById('res');
 
 let openAndClose = false;
@@ -104,4 +104,15 @@ let includeValueInInput = () => {
     return sumInput
 }
 
-valorEntrada.textContent = "R$" + includeValueInInput()
+let includeValueInSaida = () => {
+    let sumInput = 0
+    userDataList.forEach(element => {
+        if(element.tipo === 'saida') {
+           sumInput += Number(element.valor);
+        }
+    })
+    return sumInput;
+}
+
+valorEntrada.textContent = "R$" + includeValueInInput();
+valorSaida.textContent = "R$" + includeValueInSaida();

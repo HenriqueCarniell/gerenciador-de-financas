@@ -6,7 +6,24 @@
         "slnt" 0;
     padding-left: 10px;
     padding-right: 10px;
+    width: 80%;
+    margin: auto;
 }
+
+/* Estilo para telas médias */
+@media screen and (max-width: 768px) {
+    .container-geral {
+        width: 90%;
+    }
+}
+
+/* Estilo para telas pequenas (celulares) */
+@media screen and (max-width: 480px) {
+    .container-geral {
+        width: 100%;
+    }
+}
+
 
 .container-financeiro {
     display: flex;
