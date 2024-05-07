@@ -3,7 +3,6 @@ let div_form = document.getElementsByClassName('div-form')[0];
 let body = document.getElementsByTagName('body')[0];
 let div_valor_total = document.getElementsByClassName('div-valor-total')[0];
 let formButtonAdd = document.getElementsByClassName('form-btn-add')[0];
-
 let tituloInput = document.getElementById('titulo');
 let valorInput = document.getElementById('valor');
 let categoriaInput = document.getElementById('categoria');
@@ -24,9 +23,26 @@ openForm.addEventListener('click', () => {
         body.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
         div_valor_total.style.opacity = '0.6';
     }
-})
+});
+
+let userDataList = JSON.parse(localStorage.getItem('@userData')) || [];
+
+let InsertUserData = () => {
+    res.innerHTML = "";
+
+    userDataList.forEach(element => {
+        res.innerHTML += `
+        <p>${element.titulo}</p>
+        <p>${element.valor}</p>
+        <p>${element.categoria}</p>
+        <button onclick="excludeData(${element.id})">Excluir</button>
+        <button>Alterar</button>
+        `;
+    });
+};
 
 formButtonAdd.addEventListener('click', (e) => {
+    e.preventDefault();
 
     if(div_form.style.display === 'flex') {
         div_form.style.display = 'none';
@@ -34,30 +50,28 @@ formButtonAdd.addEventListener('click', (e) => {
         div_valor_total.style.opacity = '1';
     }
 
-    e.preventDefault();
-
     let tituloValue = tituloInput.value;
     let valorValue = valorInput.value;
     let categoriaValue = categoriaInput.value;
 
     let userData = {
+        id: Date.now(),
         titulo: tituloValue,
         valor: valorValue,
         categoria: categoriaValue
-    }
+    };
 
-    
-    localStorage.setItem('@userData', JSON.stringify(userData))
-})
+    userDataList.push(userData);
+    localStorage.setItem('@userData', JSON.stringify(userDataList));
 
-let InsertUserData = () => {
-    let userData = localStorage.getItem('@userData')
+    InsertUserData();
+});
 
-    res.innerHTML = `
-    <p>${userData.titulo}</p>
-    <p>${userData.valor}</p>
-    <p>${userData.categoria}</p>
-    `
-}
+let excludeData = (id) => {
+    userDataList = userDataList.filter(element => {
+        return element.id != id;
+    });
 
-InsertUserData()
+    localStorage.setItem('@userData', JSON.stringify(userDataList));
+    InsertUserData();
+};
