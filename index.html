@@ -34,7 +34,7 @@
                 </div>
 
                 <div class="div-valor">
-                    <i>R$ 212</i>
+                    <i id="valor-de-entrada">R$ 212</i>
                 </div>
             </div>
 
@@ -44,9 +44,9 @@
                     <p class="saida-titulo">Saída</p>
                     <i class="bi bi-arrow-down-circle"></i>
                 </div>
-                
+
                 <div class="div-valor">
-                    <i>R$ 212</i>
+                    <i id="valor-de-saida">R$ 212</i>
                 </div>
             </div>
 
@@ -58,7 +58,7 @@
                 </div>
 
                 <div class="div-valor">
-                    <i>R$ 212</i>
+                    <i id="valor-total">R$ 212</i>
                 </div>
 
             </div>
@@ -106,6 +106,15 @@
                     <option value="Conta de luz">Conta de luz</option>
                     <option value="Internet">Internet</option>
                 </select>
+
+                <div class="container-form-entrada-saida">
+                    <input type="radio" id="button-form-entrada" name="tipo" value="entrada">
+                    <label for="button-form-entrada">Entrada</label>
+                
+                    <input type="radio" id="button-form-saida" name="tipo" value="saida">
+                    <label for="button-form-saida">Saída</label>
+                </div>
+                
 
                 <div class="div-btn-form-add">
                     <button class="form-btn-add">Adicionar</button>

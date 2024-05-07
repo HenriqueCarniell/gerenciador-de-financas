@@ -6,9 +6,22 @@ let formButtonAdd = document.getElementsByClassName('form-btn-add')[0];
 let tituloInput = document.getElementById('titulo');
 let valorInput = document.getElementById('valor');
 let categoriaInput = document.getElementById('categoria');
+let buttonFormEntrada = document.getElementById('button-form-entrada');
+let buttonFormSaida = document.getElementById('button-form-saida');
+let radioEntrada = document.getElementById('button-form-entrada');
+let radioSaida = document.getElementById('button-form-saida');
+
 let res = document.getElementById('res');
 
 let openAndClose = false;
+
+let getTipoSelecionado = () => {
+    if (radioEntrada.checked) {
+        return radioEntrada.value;
+    } else {
+        return radioSaida.value; 
+    }
+}
 
 openForm.addEventListener('click', () => {
     openAndClose = !openAndClose;
@@ -58,7 +71,8 @@ formButtonAdd.addEventListener('click', (e) => {
         id: Date.now(),
         titulo: tituloValue,
         valor: valorValue,
-        categoria: categoriaValue
+        categoria: categoriaValue,
+        tipo: getTipoSelecionado()
     };
 
     userDataList.push(userData);

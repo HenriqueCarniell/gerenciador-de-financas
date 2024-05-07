@@ -156,3 +156,7 @@
 body {
     background: none;
 }
+
+.container-form-entrada-saida {
+    padding: 10px;
+}
