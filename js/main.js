@@ -10,8 +10,8 @@ let buttonFormEntrada = document.getElementById('button-form-entrada');
 let buttonFormSaida = document.getElementById('button-form-saida');
 let radioEntrada = document.getElementById('button-form-entrada');
 let radioSaida = document.getElementById('button-form-saida');
-let radioAlterEntrada = document.getElementById("button-alter-form-entrada");
 let divFormAlter = document.getElementsByClassName('container-form-alter')[0];
+let radioAlterEntrada = document.getElementById('button-alter-form-entrada');
 let radioAlterSaida = document.getElementById('button-alter-form-saida');
 let valorEntrada = document.getElementById('valor-de-entrada');
 let btnAlterForm = document.getElementById('form-btn-add-2');
@@ -98,7 +98,6 @@ let getAlterRadioForm = () => {
 
 let alterarData = (id) => {
 
-    // Lógica para abrir ou fechar o formulário
     if (divFormAlter.style.display === 'grid') {
         divFormAlter.style.display = 'none';
         body.style.backgroundColor = 'white';
@@ -125,16 +124,22 @@ let alterFormData = (e, id) => {
         div_valor_total.style.opacity = '0.6';
     }
 
-
-    // Pegar todos os dados
     let alterTitulo = document.getElementById('alter-titulo').value;
     let alterValor = document.getElementById('alter-valor').value;
     let alterCategoria = document.getElementById('alter-categoria').value;
-    let alterTipo = getAlterRadioForm();
+
+    let tipo = '';
+    if (radioAlterEntrada.checked) {
+        tipo = 'entrada';
+    } else if (radioAlterSaida.checked) {
+        tipo = 'saida';
+    }
 
     userDataList = userDataList.map(element => {
-        return element.id === id ? { ...element, titulo: alterTitulo, valor: alterValor, categoria: alterCategoria, tipo: alterTipo } : element;
+        return element.id === id ? { ...element, titulo: alterTitulo, valor: alterValor, categoria: alterCategoria, tipo: tipo } : element;
     })
+
+    console.log(userDataList)
 
     localStorage.setItem('@userData', JSON.stringify(userDataList));
     InsertUserData();
