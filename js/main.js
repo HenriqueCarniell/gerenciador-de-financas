@@ -10,6 +10,7 @@ let buttonFormEntrada = document.getElementById('button-form-entrada');
 let buttonFormSaida = document.getElementById('button-form-saida');
 let radioEntrada = document.getElementById('button-form-entrada');
 let radioSaida = document.getElementById('button-form-saida');
+let valorEntrada = document.getElementById('valor-de-entrada')
 
 let res = document.getElementById('res');
 
@@ -53,6 +54,7 @@ let InsertUserData = () => {
         `;
     });
 };
+InsertUserData();
 
 formButtonAdd.addEventListener('click', (e) => {
     e.preventDefault();
@@ -77,8 +79,8 @@ formButtonAdd.addEventListener('click', (e) => {
 
     userDataList.push(userData);
     localStorage.setItem('@userData', JSON.stringify(userDataList));
-
     InsertUserData();
+    window.location.reload()
 });
 
 let excludeData = (id) => {
@@ -88,4 +90,18 @@ let excludeData = (id) => {
 
     localStorage.setItem('@userData', JSON.stringify(userDataList));
     InsertUserData();
+
+    window.location.reload()
 };
+
+let includeValueInInput = () => {
+    let sumInput = 0
+    userDataList.forEach(element => {
+        if(element.tipo === 'entrada') {
+           sumInput += Number(element.valor)
+        }
+    })
+    return sumInput
+}
+
+valorEntrada.textContent = "R$" + includeValueInInput()
