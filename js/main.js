@@ -1,3 +1,4 @@
+// Variáveis
 let openForm = document.getElementById('btn-add');
 let div_form = document.getElementsByClassName('div-form')[0];
 let body = document.getElementsByTagName('body')[0];
@@ -21,6 +22,7 @@ let res = document.getElementById('res');
 
 let openAndClose = false;
 
+// Funções
 let getTipoSelecionado = () => {
     if (radioEntrada.checked) {
         return radioEntrada.value;
@@ -28,21 +30,6 @@ let getTipoSelecionado = () => {
         return radioSaida.value;
     }
 }
-
-openForm.addEventListener('click', () => {
-    openAndClose = !openAndClose;
-
-    if (openAndClose === false) {
-        div_form.style.display = 'none';
-        body.style.backgroundColor = 'white';
-        div_valor_total.style.opacity = '1';
-
-    } else {
-        div_form.style.display = 'flex';
-        body.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
-        div_valor_total.style.opacity = '0.6';
-    }
-});
 
 let userDataList = JSON.parse(localStorage.getItem('@userData')) || [];
 
@@ -55,38 +42,12 @@ let InsertUserData = () => {
         <p>${element.valor}</p>
         <p>${element.categoria}</p>
         <button onclick="excludeData(${element.id})">Excluir</button>
-        <button onclick="alterarData(${element.id})">Alterar</button>
+        <button onclick="openAndCloseAlterForm(${element.id})">Alterar</button>
         `;
     });
 };
-InsertUserData();
 
-formButtonAdd.addEventListener('click', (e) => {
-    e.preventDefault();
-
-    if (div_form.style.display === 'flex') {
-        div_form.style.display = 'none';
-        body.style.backgroundColor = 'white';
-        div_valor_total.style.opacity = '1';
-    }
-
-    let tituloValue = tituloInput.value;
-    let valorValue = valorInput.value;
-    let categoriaValue = categoriaInput.value;
-
-    let userData = {
-        id: Date.now(),
-        titulo: tituloValue,
-        valor: valorValue,
-        categoria: categoriaValue,
-        tipo: getTipoSelecionado()
-    };
-
-    userDataList.push(userData);
-    localStorage.setItem('@userData', JSON.stringify(userDataList));
-    InsertUserData();
-    window.location.reload();
-});
+InsertUserData()
 
 let getAlterRadioForm = () => {
     if (radioAlterSaida.checked) {
@@ -96,8 +57,7 @@ let getAlterRadioForm = () => {
     }
 }
 
-let alterarData = (id) => {
-
+let openAndCloseAlterForm = (id) => {
     if (divFormAlter.style.display === 'grid') {
         divFormAlter.style.display = 'none';
         body.style.backgroundColor = 'white';
@@ -138,8 +98,6 @@ let alterFormData = (e, id) => {
     userDataList = userDataList.map(element => {
         return element.id === id ? { ...element, titulo: alterTitulo, valor: alterValor, categoria: alterCategoria, tipo: tipo } : element;
     })
-
-    console.log(userDataList)
 
     localStorage.setItem('@userData', JSON.stringify(userDataList));
     InsertUserData();
@@ -184,3 +142,46 @@ let includeValueinTotal = () => {
 valorEntrada.textContent = "R$" + includeValueInInput();
 valorSaida.textContent = "R$" + includeValueInSaida();
 valorTotal.textContent = "R$" + includeValueinTotal();
+
+// Eventos
+openForm.addEventListener('click', () => {
+    openAndClose = !openAndClose;
+
+    if (openAndClose === false) {
+        div_form.style.display = 'none';
+        body.style.backgroundColor = 'white';
+        div_valor_total.style.opacity = '1';
+
+    } else {
+        div_form.style.display = 'flex';
+        body.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
+        div_valor_total.style.opacity = '0.6';
+    }
+});
+
+formButtonAdd.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    if (div_form.style.display === 'flex') {
+        div_form.style.display = 'none';
+        body.style.backgroundColor = 'white';
+        div_valor_total.style.opacity = '1';
+    }
+
+    let tituloValue = tituloInput.value;
+    let valorValue = valorInput.value;
+    let categoriaValue = categoriaInput.value;
+
+    let userData = {
+        id: Date.now(),
+        titulo: tituloValue,
+        valor: valorValue,
+        categoria: categoriaValue,
+        tipo: getTipoSelecionado()
+    };
+
+    userDataList.push(userData);
+    localStorage.setItem('@userData', JSON.stringify(userDataList));
+    InsertUserData();
+    window.location.reload();
+});
