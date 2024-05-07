@@ -186,7 +186,7 @@ body {
 }
 
 .container-form-alter {
-
+    display: none;
     justify-content: center;
     position: absolute;
     top: 50%;
