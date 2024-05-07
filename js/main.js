@@ -12,6 +12,7 @@ let radioEntrada = document.getElementById('button-form-entrada');
 let radioSaida = document.getElementById('button-form-saida');
 let valorEntrada = document.getElementById('valor-de-entrada')
 let valorSaida = document.getElementById('valor-de-saida')
+let valorTotal = document.getElementById('valor-total')
 let res = document.getElementById('res');
 
 let openAndClose = false;
@@ -50,7 +51,7 @@ let InsertUserData = () => {
         <p>${element.valor}</p>
         <p>${element.categoria}</p>
         <button onclick="excludeData(${element.id})">Excluir</button>
-        <button>Alterar</button>
+        <button onclick="alterarData(${element.id})">Alterar</button>
         `;
     });
 };
@@ -83,6 +84,14 @@ formButtonAdd.addEventListener('click', (e) => {
     window.location.reload()
 });
 
+let alterarData = (id) => {
+    // Logica para abrir o formulario
+
+    //pegar todos os dados
+
+    //Substituir os novos dados no localstorage
+}
+
 let excludeData = (id) => {
     userDataList = userDataList.filter(element => {
         return element.id != id;
@@ -114,5 +123,10 @@ let includeValueInSaida = () => {
     return sumInput;
 }
 
+let includeValueinTotal = () => {
+    return includeValueInInput() - includeValueInSaida()
+}
+
 valorEntrada.textContent = "R$" + includeValueInInput();
 valorSaida.textContent = "R$" + includeValueInSaida();
+valorTotal.textContent = "R$" + includeValueinTotal();

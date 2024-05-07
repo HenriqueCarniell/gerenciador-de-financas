@@ -18,9 +18,16 @@
 }
 
 /* Estilo para telas pequenas (celulares) */
-@media screen and (max-width: 480px) {
-    .container-geral {
-        width: 100%;
+@media screen and (max-width: 500px) {
+    #valor-de-entrada {
+        font-size: 30px;
+    }
+
+    #valor-de-saida {
+        font-size: 30px;
+    }
+    #valor-total {
+        font-size: 30px;
     }
 }
 
@@ -177,3 +184,26 @@ body {
 .container-form-entrada-saida {
     padding: 10px;
 }
+
+.container-form-alter {
+
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    background-color: white;
+    border-radius: 8px;
+    
+}
+
+.form-add-2 {
+    display: grid;
+    width: 25rem;
+    padding: 30px;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    border-radius: 8px;
+    opacity: 1;
+}
+
