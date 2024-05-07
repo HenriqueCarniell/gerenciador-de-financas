@@ -130,18 +130,14 @@ let alterFormData = (e, id) => {
     let alterTitulo = document.getElementById('alter-titulo').value;
     let alterValor = document.getElementById('alter-valor').value;
     let alterCategoria = document.getElementById('alter-categoria').value;
-    let alterTipo = getAlterRadioForm(); // Certifique-se de definir ou remover esta função
-
-    // Substituir os novos dados no localStorage
+    let alterTipo = getAlterRadioForm();
 
     userDataList = userDataList.map(element => {
         return element.id === id ? { ...element, titulo: alterTitulo, valor: alterValor, categoria: alterCategoria, tipo: alterTipo } : element;
     })
 
-
     localStorage.setItem('@userData', JSON.stringify(userDataList));
     InsertUserData();
-
 }
 
 let excludeData = (id) => {
@@ -172,6 +168,7 @@ let includeValueInSaida = () => {
             sumInput += Number(element.valor);
         }
     })
+
     return sumInput;
 }
 
