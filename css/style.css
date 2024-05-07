@@ -198,7 +198,7 @@ body {
     
 }
 
-.form-add-2 {
+.form-alter-add {
     display: grid;
     width: 25rem;
     padding: 30px;
@@ -207,3 +207,8 @@ body {
     opacity: 1;
 }
 
+#form-btn-add-2 {
+    display: flex;
+    justify-content: center;
+    
+}

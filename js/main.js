@@ -10,7 +10,11 @@ let buttonFormEntrada = document.getElementById('button-form-entrada');
 let buttonFormSaida = document.getElementById('button-form-saida');
 let radioEntrada = document.getElementById('button-form-entrada');
 let radioSaida = document.getElementById('button-form-saida');
+let radioAlterEntrada = document.getElementById("button-alter-form-entrada");
+let divFormAlter = document.getElementsByClassName('container-form-alter')[0];
+let radioAlterSaida = document.getElementById('button-alter-form-saida');
 let valorEntrada = document.getElementById('valor-de-entrada');
+let btnAlterForm = document.getElementById('form-btn-add-2');
 let valorSaida = document.getElementById('valor-de-saida');
 let valorTotal = document.getElementById('valor-total');
 let res = document.getElementById('res');
@@ -21,14 +25,14 @@ let getTipoSelecionado = () => {
     if (radioEntrada.checked) {
         return radioEntrada.value;
     } else {
-        return radioSaida.value; 
+        return radioSaida.value;
     }
 }
 
 openForm.addEventListener('click', () => {
     openAndClose = !openAndClose;
 
-    if(openAndClose === false) {
+    if (openAndClose === false) {
         div_form.style.display = 'none';
         body.style.backgroundColor = 'white';
         div_valor_total.style.opacity = '1';
@@ -60,7 +64,7 @@ InsertUserData();
 formButtonAdd.addEventListener('click', (e) => {
     e.preventDefault();
 
-    if(div_form.style.display === 'flex') {
+    if (div_form.style.display === 'flex') {
         div_form.style.display = 'none';
         body.style.backgroundColor = 'white';
         div_valor_total.style.opacity = '1';
@@ -81,11 +85,18 @@ formButtonAdd.addEventListener('click', (e) => {
     userDataList.push(userData);
     localStorage.setItem('@userData', JSON.stringify(userDataList));
     InsertUserData();
-    window.location.reload()
+    window.location.reload();
 });
 
+let getAlterRadioForm = () => {
+    if (radioAlterSaida.checked) {
+        return radioAlterSaida.value;
+    } else {
+        return valorEntrada.value;
+    }
+}
+
 let alterarData = (id) => {
-    let divFormAlter = document.getElementsByClassName('container-form-alter')[0]; // Acessando o primeiro elemento da coleção
 
     // Lógica para abrir ou fechar o formulário
     if (divFormAlter.style.display === 'grid') {
@@ -98,10 +109,40 @@ let alterarData = (id) => {
         div_valor_total.style.opacity = '0.6';
     }
 
-    // Pegar todos os dados
-    // Substituir os novos dados no localStorage
+    btnAlterForm.addEventListener('click', (e) => alterFormData(e, id));
 }
 
+let alterFormData = (e, id) => {
+    e.preventDefault()
+
+    if (divFormAlter.style.display === 'grid') {
+        divFormAlter.style.display = 'none';
+        body.style.backgroundColor = 'white';
+        div_valor_total.style.opacity = '1';
+    } else {
+        divFormAlter.style.display = 'grid';
+        body.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
+        div_valor_total.style.opacity = '0.6';
+    }
+
+
+    // Pegar todos os dados
+    let alterTitulo = document.getElementById('alter-titulo').value;
+    let alterValor = document.getElementById('alter-valor').value;
+    let alterCategoria = document.getElementById('alter-categoria').value;
+    let alterTipo = getAlterRadioForm(); // Certifique-se de definir ou remover esta função
+
+    // Substituir os novos dados no localStorage
+
+    userDataList = userDataList.map(element => {
+        return element.id === id ? { ...element, titulo: alterTitulo, valor: alterValor, categoria: alterCategoria, tipo: alterTipo } : element;
+    })
+
+
+    localStorage.setItem('@userData', JSON.stringify(userDataList));
+    InsertUserData();
+
+}
 
 let excludeData = (id) => {
     userDataList = userDataList.filter(element => {
@@ -117,8 +158,8 @@ let excludeData = (id) => {
 let includeValueInInput = () => {
     let sumInput = 0
     userDataList.forEach(element => {
-        if(element.tipo === 'entrada') {
-           sumInput += Number(element.valor)
+        if (element.tipo === 'entrada') {
+            sumInput += Number(element.valor)
         }
     })
     return sumInput
@@ -127,8 +168,8 @@ let includeValueInInput = () => {
 let includeValueInSaida = () => {
     let sumInput = 0
     userDataList.forEach(element => {
-        if(element.tipo === 'saida') {
-           sumInput += Number(element.valor);
+        if (element.tipo === 'saida') {
+            sumInput += Number(element.valor);
         }
     })
     return sumInput;

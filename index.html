@@ -123,21 +123,20 @@
         </div>
     </div>
 
-    <script src="./js/main.js"></script>
-
     <div class="container-form-alter">
-        <form action="" class="form-add-2">
+        <form action="" class="form-alter-add">
                 
             <div class="titulo-form-2">
                 <h1>Alterar Finanças</h1>
-            </div><label for="">Título</label>
-            <input type="text" id="titulo-2">
+            </div>
+            <label for="">Título</label>
+            <input type="text" id="alter-titulo">
 
             <label for="">Valor</label>
-            <input type="number" id="valor-2">
+            <input type="number" id="alter-valor">
 
             <label for="">Alterar</label>
-            <select name="" id="categoria-2">
+            <select name="" id="alter-categoria">
                 <option value=""></option>
                 <option value="Celular">Celular</option>
                 <option value="Aluguel">Aluguel</option>
@@ -146,21 +145,22 @@
                 <option value="Conta de luz">Conta de luz</option>
                 <option value="Internet">Internet</option>
             </select>
-
-            <div class="container-form-entrada-saida-2">
-                <input type="radio" id="button-form-entrada-2" name="tipo" value="entrada">
-                <label for="button-form-entrada">Entrada</label>
             
-                <input type="radio" id="button-form-saida" name="tipo" value="saida">
-                <label for="button-form-saida">Saída</label>
+            <div class="container-form-entrada-saida">
+                <input type="radio" id="button-alter-form-entrada" name="tipo" value="entrada">
+                <label for="button-alter-form-entrada">Entrada</label>
+            
+                <input type="radio" id="button-alter-form-saida" name="tipo" value="saida">
+                <label for="button-alter-form-saida">Saída</label>
             </div>
-            
 
             <div class="div-btn-form-add-2">
-                <button class="form-btn-add-2">Adicionar</button>
+                <button id="form-btn-add-2">Adicionar</button>
             </div>
         </form>
     </div>
+
+    <script src="./js/main.js"></script>
 </body>
 
 </html>
