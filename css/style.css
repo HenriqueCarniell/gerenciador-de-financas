@@ -46,15 +46,17 @@
 
 .saida {
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    color: rgb(202, 16, 16);
+    color:crimson;
 }
 
 .entrada-titulo {
-    color: green;
+    color: rgb(7, 165, 7);
+    font-size: 18px;
 }
 
 .saida-titulo {
-    color: rgb(202, 16, 16);
+    color: crimson;
+    font-size: 18px;
 }
 
 .container-total-icon {
@@ -65,6 +67,7 @@
 
 .container-total-icon p {
     color: white;
+    font-size: 18px;
 }
 
 
@@ -94,7 +97,7 @@
 
 .container-dados-gerenciadores {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 .div-valor-total {
@@ -133,7 +136,7 @@
 
 #btn-add {
     cursor: pointer;
-    background-color: rgb(114, 114, 219);
+    background-color: rgb(59, 134, 231);
     color: white;
     border-color: transparent;
 }
@@ -171,7 +174,7 @@
 .form-btn-add {
     width: 25rem;
     padding: 10px;
-    background-color: rgb(114, 114, 219);
+    background-color: rgb(98, 151, 221);
     border: none;
     border-radius: 8px;
     cursor: pointer;
@@ -208,7 +211,43 @@ body {
 }
 
 #form-btn-add-2 {
+    width: 25rem;
+    padding: 10px;
+    background-color: rgb(98, 151, 221);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+
+.btn-excluir-alter:first-child {
+    background-color: crimson;
+    color: #fff;
+    width: 5rem;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+
+}
+
+.btn-excluir-alter:last-child {
+    background-color: rgb(100, 99, 99);
+    color: #fff;
+    width: 5rem;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+
+}
+
+.container-data-user {
     display: flex;
-    justify-content: center;
-    
+    justify-content: space-between;
+    margin-top: 1.5rem;
+}
+
+#data-dia-ano {
+    margin-right: 1rem;
 }

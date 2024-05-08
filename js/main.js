@@ -38,11 +38,17 @@ let InsertUserData = () => {
 
     userDataList.forEach(element => {
         res.innerHTML += `
+        <div class="container-data-user">
         <p>${element.titulo}</p>
         <p>${element.valor}</p>
         <p>${element.categoria}</p>
-        <button onclick="excludeData(${element.id})">Excluir</button>
-        <button onclick="openAndCloseAlterForm(${element.id})">Alterar</button>
+        <p id="data-dia-ano">${element.Data.dia + "/" + element.Data.mes + "/" + element.Data.ano}</p>
+        <p >${element.Data.hora + ":" + element.Data.minutos + ":" + element.Data.segundos} </p>
+        <div>
+        <button onclick="excludeData(${element.id})" class="btn-excluir-alter">Excluir</button>
+        <button onclick="openAndCloseAlterForm(${element.id})" class="btn-excluir-alter">Alterar</button>
+        </div>
+        </div>
         `;
     });
 };
@@ -162,6 +168,8 @@ openForm.addEventListener('click', () => {
 formButtonAdd.addEventListener('click', (e) => {
     e.preventDefault();
 
+    const now = new Date()
+
     if (div_form.style.display === 'flex') {
         div_form.style.display = 'none';
         body.style.backgroundColor = 'white';
@@ -177,7 +185,15 @@ formButtonAdd.addEventListener('click', (e) => {
         titulo: tituloValue,
         valor: valorValue,
         categoria: categoriaValue,
-        tipo: getTipoSelecionado()
+        tipo: getTipoSelecionado(),
+        Data: {
+            'dia': now.getDate(),
+            'mes': now.getMonth() + 1,
+            'ano': now.getFullYear(),
+            'hora': now.getHours(),
+            'minutos': now.getMinutes(),
+            'segundos': now.getSeconds()
+        }
     };
 
     userDataList.push(userData);
