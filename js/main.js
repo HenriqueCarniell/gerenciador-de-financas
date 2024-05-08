@@ -81,7 +81,7 @@ let openAndCloseAlterForm = (id) => {
 }
 
 let alterFormData = (e, id) => {
-    e.preventDefault()
+    e.preventDefault();
 
     if (divFormAlter.style.display === 'grid') {
         divFormAlter.style.display = 'none';
@@ -121,17 +121,17 @@ let excludeData = (id) => {
     localStorage.setItem('@userData', JSON.stringify(userDataList));
     InsertUserData();
 
-    window.location.reload()
+    window.location.reload();
 };
 
 let includeValueInInput = () => {
     let sumInput = 0
     userDataList.forEach(element => {
         if (element.tipo === 'entrada') {
-            sumInput += Number(element.valor)
+            sumInput += Number(element.valor);
         }
     })
-    return sumInput
+    return sumInput;
 }
 
 let includeValueInSaida = () => {
@@ -146,7 +146,7 @@ let includeValueInSaida = () => {
 }
 
 let includeValueinTotal = () => {
-    return includeValueInInput() - includeValueInSaida()
+    return includeValueInInput() - includeValueInSaida();
 }
 
 valorEntrada.textContent = "R$" + includeValueInInput();
@@ -172,7 +172,7 @@ openForm.addEventListener('click', () => {
 formButtonAdd.addEventListener('click', (e) => {
     e.preventDefault();
 
-    const now = new Date()
+    const now = new Date();
 
     if (div_form.style.display === 'flex') {
         div_form.style.display = 'none';
