@@ -37,13 +37,15 @@ let InsertUserData = () => {
     res.innerHTML = "";
 
     userDataList.forEach(element => {
+        let color = element.tipo === 'entrada' ? 'green' : 'red';
+
         res.innerHTML += `
         <div class="container-data-user">
-        <p>${element.titulo}</p>
-        <p>${element.valor}</p>
-        <p>${element.categoria}</p>
-        <p id="data-dia-ano">${element.Data.dia + "/" + element.Data.mes + "/" + element.Data.ano}</p>
-        <p >${element.Data.hora + ":" + element.Data.minutos + ":" + element.Data.segundos} </p>
+        <p style="color: ${color};">${element.titulo}</p>
+        <p style="color: ${color};">${element.valor}</p>
+        <p style="color: ${color};">${element.categoria}</p>
+        <p style="color: ${color};">${element.Data.dia + "/" + element.Data.mes + "/" + element.Data.ano}</p>
+        <p style="color: ${color};">${element.Data.hora + ":" + element.Data.minutos + ":" + element.Data.segundos} </p>
         <div>
         <button onclick="excludeData(${element.id})" class="btn-excluir-alter">Excluir</button>
         <button onclick="openAndCloseAlterForm(${element.id})" class="btn-excluir-alter">Alterar</button>
@@ -52,6 +54,7 @@ let InsertUserData = () => {
         `;
     });
 };
+
 
 InsertUserData()
 
@@ -107,6 +110,7 @@ let alterFormData = (e, id) => {
 
     localStorage.setItem('@userData', JSON.stringify(userDataList));
     InsertUserData();
+    window.location.reload();
 }
 
 let excludeData = (id) => {
