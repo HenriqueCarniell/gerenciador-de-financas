@@ -155,12 +155,14 @@
 
 .form-add {
     display: grid;
-    width: 25rem;
+    width: 20rem;
     padding: 30px;
     box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
     border-radius: 8px;
     opacity: 1;
 }
+
+
 
 .titulo-form {
     text-align: center;
@@ -172,7 +174,7 @@
 }
 
 .form-btn-add {
-    width: 25rem;
+    width: 100%;
     padding: 10px;
     background-color: rgb(98, 151, 221);
     border: none;
@@ -203,7 +205,7 @@ body {
 
 .form-alter-add {
     display: grid;
-    width: 25rem;
+    width: 20rem;
     padding: 30px;
     box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
     border-radius: 8px;
@@ -211,7 +213,7 @@ body {
 }
 
 #form-btn-add-2 {
-    width: 25rem;
+    width: 100%;
     padding: 10px;
     background-color: rgb(98, 151, 221);
     border: none;
