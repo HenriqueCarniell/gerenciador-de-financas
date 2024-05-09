@@ -67,37 +67,75 @@
         <!-- Div de Titulo, valor, categoria, dados/hora, gerenciador do que o usuario digitar -->
         <div>
             <!-- Titulo, valor, categoria, dados/hora, gerenciador -->
-            <div class="container-dados-gerenciadores">
-                <p>Título</p>
-                <p>Valor</p>
-                <p>Categoria</p>
-                <p>Data/Hora</p>
-                <p>Gerenciador</p>
-            </div>
-
             <div id="res">
 
             </div>
+            <!-- botão onde abre e fecha o formulario para digitar os dados -->
+            <div class="div-btn-adicionar">
+                <button id="btn-add">Adicionar</button>
+            </div>
+
+            <div class="div-form">
+                <form action="" class="form-add">
+                    <button id="closeButton">X</button>
+                    <div class="titulo-form">
+                        <h1>Adicionar Finança</h1>
+                    </div>
+                    <label for="">Título</label>
+                    <input type="text" id="titulo" class="change">
+
+                    <label for="">Valor</label>
+                    <input type="number" id="valor" class="change">
+
+                    <label for="">Categoria</label>
+                    <select name="categoria" id="categoria" class="change">
+                        <option value=""></option>
+                        <option value="Alimentação">Alimentação</option>
+                        <option value="Transporte">Transporte</option>
+                        <option value="Moradia">Moradia</option>
+                        <option value="Saúde">Saúde</option>
+                        <option value="Educação">Educação</option>
+                        <option value="Lazer">Lazer</option>
+                        <option value="Roupas">Roupas</option>
+                        <option value="Tecnologia">Tecnologia</option>
+                        <option value="Contas">Contas</option>
+                        <option value="Outros">Outros</option>
+                    </select>
+
+
+                    <div class="container-form-entrada-saida">
+                        <input type="radio" id="button-form-entrada" name="tipo" value="entrada">
+                        <label for="button-form-entrada">Entrada</label>
+
+                        <input type="radio" id="button-form-saida" name="tipo" value="saida">
+                        <label for="button-form-saida">Saída</label>
+                    </div>
+
+
+                    <div class="div-btn-form-add">
+                        <button class="form-btn-add">Adicionar</button>
+                    </div>
+                </form>
+            </div>
         </div>
 
-        <!-- botão onde abre e fecha o formulario para digitar os dados -->
-        <div class="div-btn-adicionar">
-            <button id="btn-add">Adicionar</button>
-        </div>
-
-        <div class="div-form">
-            <form action="" class="form-add">
-                <div class="titulo-form">
-                    <h1>Adicionar Finança</h1>
+        <!-- Formulario para alterar valores -->
+        <div class="container-form-alter">
+            <form action="" class="form-alter-add">
+                <div class="div-alterform-btn">
+                    <button class="closeButtonAlterForm">X</button>
+                </div>
+                <div class="titulo-form-2">
+                    <h1>Alterar Finanças</h1>
                 </div>
                 <label for="">Título</label>
-                <input type="text" id="titulo" class="change">
+                <input type="text" id="alter-titulo">
 
                 <label for="">Valor</label>
-                <input type="number" id="valor" class="change">
+                <input type="number" id="alter-valor">
 
-                <label for="">Categoria</label>
-                <select name="categoria" id="categoria" class="change">
+                <label for="">Alterar</label>
+                <select name="" id="alter-categoria">
                     <option value=""></option>
                     <option value="Alimentação">Alimentação</option>
                     <option value="Transporte">Transporte</option>
@@ -110,66 +148,22 @@
                     <option value="Contas">Contas</option>
                     <option value="Outros">Outros</option>
                 </select>
-                
 
                 <div class="container-form-entrada-saida">
-                    <input type="radio" id="button-form-entrada" name="tipo" value="entrada">
-                    <label for="button-form-entrada">Entrada</label>
-                
-                    <input type="radio" id="button-form-saida" name="tipo" value="saida">
-                    <label for="button-form-saida">Saída</label>
-                </div>
-                
+                    <input type="radio" id="button-alter-form-entrada" name="tipo" value="entrada">
+                    <label>Entrada</label>
 
-                <div class="div-btn-form-add">
-                    <button class="form-btn-add">Adicionar</button>
+                    <input type="radio" id="button-alter-form-saida" name="tipo" value="saida">
+                    <label>Saída</label>
+                </div>
+
+                <div class="div-btn-form-add-2">
+                    <button id="form-btn-add-2">Adicionar</button>
                 </div>
             </form>
         </div>
-    </div>
 
-    <div class="container-form-alter">
-        <form action="" class="form-alter-add">
-                
-            <div class="titulo-form-2">
-                <h1>Alterar Finanças</h1>
-            </div>
-            <label for="">Título</label>
-            <input type="text" id="alter-titulo">
-
-            <label for="">Valor</label>
-            <input type="number" id="alter-valor">
-
-            <label for="">Alterar</label>
-            <select name="" id="alter-categoria">
-                <option value=""></option>
-                <option value="Alimentação">Alimentação</option>
-                <option value="Transporte">Transporte</option>
-                <option value="Moradia">Moradia</option>
-                <option value="Saúde">Saúde</option>
-                <option value="Educação">Educação</option>
-                <option value="Lazer">Lazer</option>
-                <option value="Roupas">Roupas</option>
-                <option value="Tecnologia">Tecnologia</option>
-                <option value="Contas">Contas</option>
-                <option value="Outros">Outros</option>
-            </select>
-            
-            <div class="container-form-entrada-saida">
-                <input type="radio" id="button-alter-form-entrada" name="tipo" value="entrada">
-                <label>Entrada</label>
-            
-                <input type="radio" id="button-alter-form-saida" name="tipo" value="saida">
-                <label>Saída</label>
-            </div>
-
-            <div class="div-btn-form-add-2">
-                <button id="form-btn-add-2">Adicionar</button>
-            </div>
-        </form>
-    </div>
-
-    <script src="./js/main.js"></script>
+        <script src="./js/main.js"></script>
 </body>
 
 </html>

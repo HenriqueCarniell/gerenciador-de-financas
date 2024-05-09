@@ -2,35 +2,12 @@
     font-family: "Inter", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
-    font-variation-settings:
-        "slnt" 0;
+    font-variation-settings: "slnt" 0;
     padding-left: 10px;
     padding-right: 10px;
     width: 80%;
     margin: auto;
 }
-
-/* Estilo para telas médias */
-@media screen and (max-width: 768px) {
-    .container-geral {
-        width: 90%;
-    }
-}
-
-/* Estilo para telas pequenas (celulares) */
-@media screen and (max-width: 500px) {
-    #valor-de-entrada {
-        font-size: 30px;
-    }
-
-    #valor-de-saida {
-        font-size: 30px;
-    }
-    #valor-total {
-        font-size: 30px;
-    }
-}
-
 
 .container-financeiro {
     display: flex;
@@ -41,12 +18,11 @@
 .entrada {
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     color: green;
-
 }
 
 .saida {
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    color:crimson;
+    color: crimson;
 }
 
 .entrada-titulo {
@@ -70,7 +46,6 @@
     font-size: 18px;
 }
 
-
 .mini-containers {
     justify-content: space-around;
     width: 30%;
@@ -85,14 +60,11 @@
     align-items: baseline;
 }
 
-
-
 .titulo-inicial {
     display: flex;
     justify-content: center;
     margin-bottom: 4rem;
     font-size: 18px;
-
 }
 
 .container-dados-gerenciadores {
@@ -103,7 +75,7 @@
 .div-valor-total {
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     background-color: green;
-    width: 30%; 
+    width: 30%;
     border-radius: 8px;
     /* opacity: 0.7; */
 }
@@ -125,7 +97,6 @@
     width: 75px;
     height: 75px;
     border-radius: 50%;
-
 }
 
 .div-btn-adicionar {
@@ -157,12 +128,31 @@
     display: grid;
     width: 20rem;
     padding: 30px;
-    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+        rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
     border-radius: 8px;
     opacity: 1;
 }
 
+.form-add #closeButton {
+    width: 25px;
+    margin-left: 300px;
+    color: black;
+    border: 1px solid rgb(100, 99, 99);
+    background-color: transparent;
+}
 
+.div-alterform-btn {
+    text-align: end;
+}
+
+.closeButtonAlterForm {
+    width: 25px;
+    margin-left: 300px;
+    color: black;
+    border: 1px solid rgb(100, 99, 99);
+    background-color: transparent;
+}
 
 .titulo-form {
     text-align: center;
@@ -200,14 +190,14 @@ body {
     z-index: 1000;
     background-color: white;
     border-radius: 8px;
-    
 }
 
 .form-alter-add {
     display: grid;
     width: 20rem;
     padding: 30px;
-    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+        rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
     border-radius: 8px;
     opacity: 1;
 }
@@ -221,7 +211,6 @@ body {
     cursor: pointer;
 }
 
-
 .btn-excluir-alter:first-child {
     background-color: crimson;
     color: #fff;
@@ -230,7 +219,6 @@ body {
     border: none;
     border-radius: 8px;
     cursor: pointer;
-
 }
 
 .btn-excluir-alter:last-child {
@@ -241,11 +229,55 @@ body {
     border: none;
     border-radius: 8px;
     cursor: pointer;
-
 }
 
 .container-data-user {
     display: flex;
     justify-content: space-between;
     margin-top: 1.5rem;
+}
+
+#res {
+    display: flex;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.itens-data-container {
+    margin: 3rem;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    padding: 1rem;
+    border-radius: 8px;
+    width: 20rem;
+}
+
+.titulo-item-container {
+    text-align: center;
+}
+
+.button-alter-exclude-container {
+    text-align: center;
+}
+
+/* Estilo para telas médias */
+@media screen and (max-width: 768px) {
+    .container-geral {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .container-geral {
+        width: 90%;
+    }
+    #valor-de-entrada {
+        font-size: 20px;
+    }
+    #valor-de-saida {
+        font-size: 20px;
+    }
+    #valor-total {
+        font-size: 20px;
+    }
 }

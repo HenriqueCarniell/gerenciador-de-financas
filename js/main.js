@@ -40,20 +40,24 @@ let InsertUserData = () => {
         let color = element.tipo === 'entrada' ? 'green' : 'red';
 
         res.innerHTML += `
-        <div class="container-data-user">
-        <p style="color: ${color};">${element.titulo}</p>
-        <p style="color: ${color};">${element.valor}</p>
-        <p style="color: ${color};">${element.categoria}</p>
-        <p style="color: ${color};">${element.Data.dia + "/" + element.Data.mes + "/" + element.Data.ano}</p>
-        <p style="color: ${color};">${element.Data.hora + ":" + element.Data.minutos + ":" + element.Data.segundos} </p>
-        <div>
-        <button onclick="excludeData(${element.id})" class="btn-excluir-alter">Excluir</button>
-        <button onclick="openAndCloseAlterForm(${element.id})" class="btn-excluir-alter">Alterar</button>
+        <div class="itens-data-container">
+        <div class="titulo-item-container">
+            <h1>Finanças</h1>
+        </div>
+        <p style="color: ${color};">Titulo: ${element.titulo}</p>
+        <p style="color: ${color};">Valor: ${element.valor}</p>
+        <p style="color: ${color};">Categoria: ${element.categoria}</p>
+        <p style="color: ${color};"> Data: ${element.Data.dia + "/" + element.Data.mes + "/" + element.Data.ano}</p>
+        <p style="color: ${color};"> Hora: ${element.Data.hora + ":" + element.Data.minutos + ":" + element.Data.segundos}</p>
+        <div class="button-alter-exclude-container">
+        <button onclick="excludeData(${element.id})" class="btn-all btn-excluir-alter">Excluir</button>
+        <button onclick="openAndCloseAlterForm(${element.id})" class="btn-all btn-excluir-alter">Alterar</button>
         </div>
         </div>
         `;
     });
 };
+
 
 
 InsertUserData()
@@ -71,10 +75,16 @@ let openAndCloseAlterForm = (id) => {
         divFormAlter.style.display = 'none';
         body.style.backgroundColor = 'white';
         div_valor_total.style.opacity = '1';
+        document.querySelectorAll('.btn-all').forEach(btn => {
+            btn.style.opacity = '1';
+        });
     } else {
         divFormAlter.style.display = 'grid';
         body.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
         div_valor_total.style.opacity = '0.6';
+        document.querySelectorAll('.btn-all').forEach(btn => {
+            btn.style.opacity = '0.5';
+        });
     }
 
     btnAlterForm.addEventListener('click', (e) => alterFormData(e, id));
@@ -87,10 +97,16 @@ let alterFormData = (e, id) => {
         divFormAlter.style.display = 'none';
         body.style.backgroundColor = 'white';
         div_valor_total.style.opacity = '1';
+        document.querySelectorAll('.btn-all').forEach(btn => {
+            btn.style.opacity = '1';
+        });
     } else {
         divFormAlter.style.display = 'grid';
         body.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
         div_valor_total.style.opacity = '0.6';
+        document.querySelectorAll('.btn-all').forEach(btn => {
+            btn.style.opacity = '0.5';
+        });
     }
 
     let alterTitulo = document.getElementById('alter-titulo').value;
@@ -161,11 +177,17 @@ openForm.addEventListener('click', () => {
         div_form.style.display = 'none';
         body.style.backgroundColor = 'white';
         div_valor_total.style.opacity = '1';
+        document.querySelectorAll('.btn-all').forEach(btn => {
+            btn.style.opacity = '1';
+        });
 
     } else {
         div_form.style.display = 'flex';
         body.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
         div_valor_total.style.opacity = '0.6';
+        document.querySelectorAll('.btn-all').forEach(btn => {
+            btn.style.opacity = '0.3';
+        });
     }
 });
 
