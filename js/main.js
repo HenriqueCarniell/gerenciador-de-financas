@@ -20,8 +20,6 @@ let valorSaida = document.getElementById('valor-de-saida');
 let valorTotal = document.getElementById('valor-total');
 let res = document.getElementById('res');
 
-let openAndClose = false;
-
 // Funções
 let getTipoSelecionado = () => {
     if (radioEntrada.checked) {
@@ -122,7 +120,7 @@ let alterFormData = (e, id) => {
 
     userDataList = userDataList.map(element => {
         return element.id === id ? { ...element, titulo: alterTitulo, valor: alterValor, categoria: alterCategoria, tipo: tipo } : element;
-    })
+    });
 
     localStorage.setItem('@userData', JSON.stringify(userDataList));
     InsertUserData();
@@ -141,7 +139,7 @@ let excludeData = (id) => {
 };
 
 let includeValueInInput = () => {
-    let sumInput = 0
+    let sumInput = 0;
     userDataList.forEach(element => {
         if (element.tipo === 'entrada') {
             sumInput += Number(element.valor);
@@ -151,7 +149,7 @@ let includeValueInInput = () => {
 }
 
 let includeValueInSaida = () => {
-    let sumInput = 0
+    let sumInput = 0;
     userDataList.forEach(element => {
         if (element.tipo === 'saida') {
             sumInput += Number(element.valor);
@@ -171,16 +169,14 @@ valorTotal.textContent = "R$" + includeValueinTotal();
 
 // Eventos
 openForm.addEventListener('click', () => {
-    openAndClose = !openAndClose;
 
-    if (openAndClose === false) {
+    if (div_form.style.display === 'flex') {
         div_form.style.display = 'none';
         body.style.backgroundColor = 'white';
         div_valor_total.style.opacity = '1';
         document.querySelectorAll('.btn-all').forEach(btn => {
             btn.style.opacity = '1';
         });
-
     } else {
         div_form.style.display = 'flex';
         body.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
@@ -195,12 +191,6 @@ formButtonAdd.addEventListener('click', (e) => {
     e.preventDefault();
 
     const now = new Date();
-
-    if (div_form.style.display === 'flex') {
-        div_form.style.display = 'none';
-        body.style.backgroundColor = 'white';
-        div_valor_total.style.opacity = '1';
-    }
 
     let tituloValue = tituloInput.value;
     let valorValue = valorInput.value;
