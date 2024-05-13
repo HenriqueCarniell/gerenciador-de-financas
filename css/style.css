@@ -1,3 +1,7 @@
+body {
+    background: none;
+}
+
 .container-geral {
     font-family: "Inter", sans-serif;
     font-optical-sizing: auto;
@@ -9,10 +13,25 @@
     margin: auto;
 }
 
+.titulo-inicial {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 4rem;
+    font-size: 18px;
+}
+
 .container-financeiro {
     display: flex;
     width: 100%;
     justify-content: space-between;
+}
+
+.mini-containers {
+    justify-content: space-around;
+    width: 30%;
+    height: 200px;
+    align-items: baseline;
+    border-radius: 8px;
 }
 
 .entrada {
@@ -25,13 +44,19 @@
     color: crimson;
 }
 
-.entrada-titulo {
-    color: rgb(7, 165, 7);
-    font-size: 18px;
+.div-entrada-icone {
+    display: flex;
+    justify-content: space-around;
+    align-items: baseline;
 }
 
 .saida-titulo {
     color: crimson;
+    font-size: 18px;
+}
+
+.entrada-titulo {
+    color: rgb(7, 165, 7);
     font-size: 18px;
 }
 
@@ -46,38 +71,11 @@
     font-size: 18px;
 }
 
-.mini-containers {
-    justify-content: space-around;
-    width: 30%;
-    height: 200px;
-    align-items: baseline;
-    border-radius: 8px;
-}
-
-.div-entrada-icone {
-    display: flex;
-    justify-content: space-around;
-    align-items: baseline;
-}
-
-.titulo-inicial {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 4rem;
-    font-size: 18px;
-}
-
-.container-dados-gerenciadores {
-    display: flex;
-    justify-content: space-between;
-}
-
 .div-valor-total {
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     background-color: green;
     width: 30%;
     border-radius: 8px;
-    /* opacity: 0.7; */
 }
 
 .div-valor {
@@ -89,20 +87,25 @@
     color: black;
 }
 
-.div-valor-total i {
-    color: white;
+.container-dados-gerenciadores {
+    display: flex;
+    justify-content: space-between;
 }
 
-#btn-add {
-    width: 75px;
-    height: 75px;
-    border-radius: 50%;
+.div-valor-total i {
+    color: white;
 }
 
 .div-btn-adicionar {
     position: fixed;
     bottom: 50px;
     right: 50px;
+}
+
+#btn-add {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
 }
 
 #btn-add {
@@ -170,10 +173,6 @@
     border: none;
     border-radius: 8px;
     cursor: pointer;
-}
-
-body {
-    background: none;
 }
 
 .container-form-entrada-saida {
@@ -260,6 +259,8 @@ body {
     text-align: center;
 }
 
+/* Responsividades */
+
 /* Estilo para telas médias */
 @media screen and (max-width: 768px) {
     .container-geral {
@@ -271,12 +272,15 @@ body {
     .container-geral {
         width: 90%;
     }
+
     #valor-de-entrada {
         font-size: 20px;
     }
+
     #valor-de-saida {
         font-size: 20px;
     }
+
     #valor-total {
         font-size: 20px;
     }
