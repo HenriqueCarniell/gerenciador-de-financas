@@ -21,6 +21,8 @@ let valorTotal = document.getElementById('valor-total');
 let res = document.getElementById('res');
 
 // Funções
+
+// Função que pega o valor do input de entrada ou saida que o ususário escolheu
 let getTipoSelecionado = () => {
     if (radioEntrada.checked) {
         return radioEntrada.value;
@@ -29,12 +31,16 @@ let getTipoSelecionado = () => {
     }
 }
 
+// É uma variavel que pega todos os dados do localstorage para exibi-lo na tela ou manipulado(alterar,excluir,ordenado)
 let userDataList = JSON.parse(localStorage.getItem('@userData')) || [];
 
-let InsertUserData = () => {
-    res.innerHTML = "";
+// Função para inserir dados no HTML via Javascript para aparecer na tela do usuário
+let InsertUserData = () => { 
+    res.innerHTML = "";  // serve para limpar um dado antigo que o usuário digitou
 
-    userDataList.forEach(element => {
+
+    userDataList.forEach(element => { // Serve para percorrer todos os dados do localstorage e colocar cada dado na tela
+        
         let color = element.tipo === 'entrada' ? 'green' : 'red';
 
         res.innerHTML += `
@@ -60,6 +66,7 @@ let InsertUserData = () => {
 
 InsertUserData()
 
+// Função que pega o valor do input do formulario de alterar dado de entrada ou saida que o ususário escolheu
 let getAlterRadioForm = () => {
     if (radioAlterSaida.checked) {
         return radioAlterSaida.value;
@@ -68,15 +75,17 @@ let getAlterRadioForm = () => {
     }
 }
 
+//Função que vai abrir e fechar o formulario de alterar dado e colocar opacidade e cor de fundo dependendo se estiver aberto ou fechado
 let openAndCloseAlterForm = (id) => {
     if (divFormAlter.style.display === 'grid') {
+
         divFormAlter.style.display = 'none';
         body.style.backgroundColor = 'white';
         div_valor_total.style.opacity = '1';
         document.querySelectorAll('.btn-all').forEach(btn => {
             btn.style.opacity = '1';
         });
-    } else {
+    } else { 
         divFormAlter.style.display = 'grid';
         body.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
         div_valor_total.style.opacity = '0.6';
@@ -85,27 +94,12 @@ let openAndCloseAlterForm = (id) => {
         });
     }
 
+    // Evento para alterar os dados que o usuário digitou
     btnAlterForm.addEventListener('click', (e) => alterFormData(e, id));
 }
 
 let alterFormData = (e, id) => {
     e.preventDefault();
-
-    if (divFormAlter.style.display === 'grid') {
-        divFormAlter.style.display = 'none';
-        body.style.backgroundColor = 'white';
-        div_valor_total.style.opacity = '1';
-        document.querySelectorAll('.btn-all').forEach(btn => {
-            btn.style.opacity = '1';
-        });
-    } else {
-        divFormAlter.style.display = 'grid';
-        body.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
-        div_valor_total.style.opacity = '0.6';
-        document.querySelectorAll('.btn-all').forEach(btn => {
-            btn.style.opacity = '0.5';
-        });
-    }
 
     let alterTitulo = document.getElementById('alter-titulo').value;
     let alterValor = document.getElementById('alter-valor').value;
