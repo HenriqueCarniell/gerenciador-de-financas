@@ -96,7 +96,7 @@ body {
     color: white;
 }
 
-.div-btn-adicionar {
+.div-btn-abrir-fechar-form {
     position: fixed;
     bottom: 50px;
     right: 50px;
@@ -106,9 +106,6 @@ body {
     width: 75px;
     height: 75px;
     border-radius: 50%;
-}
-
-#btn-add {
     cursor: pointer;
     background-color: rgb(59, 134, 231);
     color: white;
@@ -201,7 +198,7 @@ body {
     opacity: 1;
 }
 
-#form-btn-add-2 {
+#form-btn-add-alter {
     width: 100%;
     padding: 10px;
     background-color: rgb(98, 151, 221);
