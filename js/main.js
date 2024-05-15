@@ -98,8 +98,6 @@ let openAndCloseAlterForm = (id) => {
     btnAlterForm.addEventListener('click', (e) => alterFormData(e, id));
 }
 
-// Finalizou Luccas
-
 let alterFormData = (e, id) => {
     e.preventDefault();
 
